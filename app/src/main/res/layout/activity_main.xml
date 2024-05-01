@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.calculator2.CalculatorViewModel" />
+
+        <variable
+            name="model"
+            type="com.example.calculator2.CalculatorAction" />
+
+        <variable
+            name="state"
+            type="com.example.calculator2.CalculatorState" />
+
+        <variable
+            name="view"
+            type="com.example.calculator2.MainActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/medium_gray"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:paddingVertical="32dp"
+            android:text= "@{state.number1 + state.operation.symbol + state.number2}"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textSize="80sp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            android:maxLines="2"
+            />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/clear"
+                    android:layout_width="180dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/light_gray"
+                    android:text="AC"
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(10)}"
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/delete"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/light_gray"
+                    android:text="Del"
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(11)}"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/divide"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/orange"
+                    android:text="/"
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(18)}"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/seven"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/dark_gray"
+                    android:text="7"
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(7)}"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/eight"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/dark_gray"
+                    android:text="8"
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(8)}"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/nine"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/dark_gray"
+                    android:text="9"
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(9)}"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/multiply"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/orange"
+                    android:text="x"
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(16)}"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/four"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/dark_gray"
+                    android:text="4"
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(4)}"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/five"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/dark_gray"
+                    android:text="5"
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(5)}"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/six"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/dark_gray"
+                    android:text="6"
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(6)}"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/subtract"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/orange"
+                    android:text="-"
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(17)}"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/one"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/dark_gray"
+                    android:text="1"
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(1)}"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/two"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/dark_gray"
+                    android:text="2"
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(2)}"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/three"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/dark_gray"
+                    android:text="3"
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(3)}"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/add"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/orange"
+                    android:text="+"
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(15)}"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/zero"
+                    android:layout_width="180dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/dark_gray"
+                    android:text="0"
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(0)}"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/decimal"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/dark_gray"
+                    android:text="."
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(12)}"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/calculation"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:backgroundTint="@color/orange"
+                    android:text="="
+                    android:textSize="36sp"
+                    android:onClick="@{()-> view.onActionViewModel(13)}"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
